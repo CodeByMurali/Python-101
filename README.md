@@ -40,10 +40,7 @@ Python provides built-in data structures that facilitate the organization and ma
 - **Dictionaries**: Collection of key-value pairs, unordered.
 - **Sets**: Unordered collection of unique items.
 - **Arrays**: Homogeneous collection of items, similar to lists.
-- **Stacks**: Collection of items with last-in, first-out (LIFO) access.
-- **Queues**: Collection of items with first-in, first-out (FIFO) access.
-- **Linked Lists**: Collection of nodes where each node points to the next node in the sequence.
-- **Trees**: Hierarchical data structure with a root node and subtrees.
+
 
 ### Problems questions are picked from
 https://www.geeksforgeeks.org/python-list-exercise/
