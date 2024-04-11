@@ -45,6 +45,10 @@ Python provides built-in data structures that facilitate the organization and ma
 - **Linked Lists**: Collection of nodes where each node points to the next node in the sequence.
 - **Trees**: Hierarchical data structure with a root node and subtrees.
 
+### Problems questions are picked from
+https://www.geeksforgeeks.org/python-list-exercise/
+
+
 ### How to Use This Guide
 
 1. **Read Through**: Start by reading through each section to understand the concepts and examples provided.
