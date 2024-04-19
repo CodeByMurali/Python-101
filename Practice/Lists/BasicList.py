@@ -64,10 +64,10 @@ def interchange_elements(inputList):
 # Approach 1
 
 
-# def swap_two_elements(inputList, pos1, pos2):
-#     inputList[pos1 - 1], inputList[pos2 -
-#                                    1] = inputList[pos2 - 1], inputList[pos1 - 1]
-#     print(inputList)
+def swap_two_elements(inputList, pos1, pos2):
+    inputList[pos1 - 1], inputList[pos2 -
+                                   1] = inputList[pos2 - 1], inputList[pos1 - 1]
+    print(inputList)
 
 # Approach 2
 
@@ -228,4 +228,135 @@ def find_second_largest_element(li):
     print(max(li))
 
 
-find_second_largest_element([10, 20, 4])
+# find_second_largest_element([10, 20, 4])
+
+
+# https://pynative.com/python-data-structure-exercise-for-beginners/
+
+# Exercise 1: Create a list by picking an odd-index items from the first list and even index items from the second
+
+# Given:
+
+l1 = [3, 6, 9, 12, 15, 18, 21]
+l2 = [4, 8, 12, 16, 20, 24, 28]
+
+# Expected Output:
+# Element at odd-index positions from list one
+# [6, 12, 18]
+# Element at even-index positions from list two
+# [4, 12, 20, 28]
+
+# Printing Final third list
+# [6, 12, 18, 4, 12, 20, 28]
+
+l3 = [item for index, item in enumerate(l1) if index % 2 != 0]
+l4 = [item for index, item in enumerate(l2) if index % 2 == 0]
+print(l3 + l4)
+
+
+# Approach 2:
+
+# # Extracting odd-indexed elements from l1
+# odd_index_l1 = [l1[i] for i in range(1, len(l1), 2)]
+
+# # Extracting even-indexed elements from l2
+# even_index_l2 = [l2[i] for i in range(0, len(l2), 2)]
+
+# # Combining the two lists
+# final_list = odd_index_l1 + even_index_l2
+
+# print("Element at odd-index positions from list one:")
+# print(odd_index_l1)
+# print("Element at even-index positions from list two:")
+# print(even_index_l2)
+# print("\nPrinting Final third list:")
+# print(final_list)
+
+
+# Exercise 2: Remove and add item in a list
+# Write a program to remove the item present at index 4 and add it to the 2nd position and at the end of the list.
+
+# Given:
+
+# list1 = [54, 44, 27, 79, 91, 41]
+# Expected Output:
+
+# List After removing element at index 4  [34, 54, 67, 89, 43, 94]
+# List after Adding element at index 2  [34, 54, 11, 67, 89, 43, 94]
+# List after Adding element at last  [34, 54, 11, 67, 89, 43, 94, 11]
+
+# list1 = [54, 44, 27, 79, 91, 41]
+
+# indexFourItem = list1[4]
+# list1.pop(4)
+# list1.insert(2, indexFourItem)
+# list1.append(indexFourItem)
+# print(list1)
+
+
+# Exercise 3: Slice list into 3 equal chunks and reverse each chunk
+
+# Given:
+
+sample_list = [11, 45, 8, 23, 14, 12, 78, 45, 89]
+# Expected Outcome:
+
+# Chunk  1 [11, 45, 8]
+# After reversing it  [8, 45, 11]
+# Chunk  2 [23, 14, 12]
+# After reversing it  [12, 14, 23]
+# Chunk  3 [78, 45, 89]
+# After reversing it  [89, 45, 78]
+
+# Sol
+# Approach 1
+# slice1 = sample_list[:3]
+# slice2 = sample_list[3:6]
+# slice3 = sample_list[6:]
+
+# slice1.reverse()
+# print(slice1)
+
+# slice2.reverse()
+# print(slice2)
+
+# slice3.reverse()
+# print(slice3)
+
+# Approcah 2
+
+# star_index = 0
+# end_index = 3
+# list_partition_count = len(sample_list)//3
+# print(list_partition_count)
+
+# for i in range(list_partition_count):
+#     chunked_lis = sample_list[star_index: end_index]
+#     star_index = star_index + 3
+#     end_index = end_index + 3
+#     print(list(reversed(chunked_lis)))
+
+# # Approach 3
+
+# sample_list = [11, 45, 8, 23, 14, 12, 78, 45, 89]
+# print("Original list ", sample_list)
+
+# length = len(sample_list)
+# chunk_size = int(length / 3)
+# start = 0
+# end = chunk_size
+
+# # run loop 3 times
+# for i in range(3):
+#     # get indexes
+#     indexes = slice(start, end)
+
+#     # get chunk
+#     list_chunk = sample_list[indexes]
+#     print("Chunk ", i, list_chunk)
+
+#     # reverse chunk
+#     print("After reversing it ", list(reversed(list_chunk)))
+
+#     start = end
+#     end += chunk_size
