@@ -1,0 +1,9 @@
+def count_frequency_char(charList):
+    char_frequency_dict = {}
+    for char in charList:
+        char_frequency_dict[char] = char_frequency_dict.get(char, 0) + 1
+    print(char_frequency_dict)
+
+
+charList = ['a', 'b', 'c', 'c', 'a']
+count_frequency_char(charList)
