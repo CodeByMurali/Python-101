@@ -37,3 +37,38 @@ judge_finder = FindTheTownJudge()
 # Test case
 result = judge_finder.findJudge(3, [[1, 3], [2, 3], [3, 1]])
 print(f"Town judge: {result}")  # Output: -1
+
+
+overflow = start + (end - start) / 2 -> Overflows
+In Java, Integer.MAX_VALUE represents the maximum value that an int type can hold, which is
+2
+31
+−
+1
+2
+31
+ −1 or 2, 147, 483, 647.
+
+When you add 1 to Integer.MAX_VALUE, it results in integer overflow because the value exceeds the maximum value an int can represent. In Java, integer overflow wraps around using two's complement arithmetic, causing the value to wrap around to the minimum value an int can represent, which is 
+−
+2
+31
+−2 
+31
+  or -2,147,483,648.
+
+So, Integer.MAX_VALUE + 1 is 
+−
+2
+,
+147
+,
+483
+,
+648
+−2,147,483,648.
+
+integer overflow attack
+Saga patterns
+sidtributed data patterns
+Design is important
