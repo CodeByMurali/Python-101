@@ -21,4 +21,19 @@ def find_primes(n):
     return prime
 
 
-print(find_primes(15))
+# print(find_primes(15))
+
+
+def first_repeating_char(s):
+    input_str = s.lower()
+    if len(s) <= 1:
+        return "None"
+    seen_char = set()
+    for char in input_str:
+        if char in seen_char:
+            return char
+        seen_char.append()
+    return "None"
+
+
+print(first_repeating_char("eaq"))
