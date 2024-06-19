@@ -1,3 +1,5 @@
+from functools import reduce
+
 """
 List and Accessing Item
 Question: Create a list of the first 10 natural numbers. Access and print the 5th element in the list.
@@ -126,4 +128,230 @@ def return_sorted_list(input_list):
           sorted(input_list)}, sorted in desc order: {sorted(input_list, reverse=True)}")
 
 
-print(return_sorted_list([3, 1, 4, 1, 5, 9, 2]))
+# print(return_sorted_list([3, 1, 4, 1, 5, 9, 2]))
+
+
+"""
+8. Python program to interchange first and last elements in a list
+Input : [12, 35, 9, 56, 24]
+Output : [24, 35, 9, 56, 12]
+
+Input : [1, 2, 3]
+Output : [3, 2, 1]
+
+"""
+
+
+def interchange_nums(input_list: list):
+    # List unpacking
+    # first, *other, last = input_list
+    # input_list[0] = last
+    # input_list[-1] = first
+
+    # Tuple assignment
+    input_list[0], input_list[-1] = input_list[-1], input_list[0]
+    return input_list
+
+
+# print(interchange_nums([12, 35, 9, 56, 24]))
+
+"""
+9. Python Program to Swap Two Elements in a List
+
+Input : List = [23, 65, 19, 90], pos1 = 1, pos2 = 3
+Output : [19, 65, 23, 90]
+
+
+Input : List = [1, 2, 3, 4, 5], pos1 = 2, pos2 = 5
+Output : [1, 5, 3, 4, 2]
+"""
+
+
+def swap_two_elements(input_list: list, pos1, pos2):
+    if (pos1 < 0 or pos2 > len(input_list)):
+        return "Invalid arguments to swap"
+    else:
+        input_list[pos1 - 1], input_list[pos2 -
+                                         1] = input_list[pos2 - 1], input_list[pos1 - 1]
+    return input_list
+
+
+# print(swap_two_elements([1, 2, 3, 4, 5], pos1=2, pos2=5))
+
+
+"""
+10. Sort elemens based on the second element in the list of tuples
+"""
+
+
+def sort_list_basedOn_value(input_list):
+    return sorted(input_list, key=get_price[1])
+
+
+def get_price(item):
+    return item[1]
+
+
+# print(sort_list_basedOn_value([("product1", 10),
+#                                ("product2", 9),
+#                                ("product3", 12)]))
+
+
+"""
+11. Do the same with lambda fucntion
+"""
+
+
+def sort_list_basedOn_value_lambda(input_list):
+    # return sorted(input_list, key=lambda input_list: input_list[1])
+    input_list.sort(key=lambda input_list: input_list[1])
+    print(input_list)
+
+
+# sort_list_basedOn_value_lambda([("product1", 10),
+#                                 ("product2", 9),
+#                                 ("product3", 12)])
+
+
+"""
+12. Basic Lambda Function
+
+Question: Write a lambda function that takes a number x and returns x squared. Test it with the number 5.
+"""
+
+
+def return_square(x):
+    print((lambda x: x**2)(x))
+
+
+# return_square(5)
+
+"""
+13. Use map function to return only the second item in the list of tuple
+"""
+# items = [
+#     ("product1", 10),
+#     ("product2", 9),
+#     ("product3", 12),
+#     ("product4", 15),
+# ]
+
+"""
+The first print(prices.sort()) returns None because the sort() method sorts the list in place and returns None. 
+This is a common mistake when using the sort() method.
+"""
+# prices = list(map(lambda items: items[1], items))
+# print(prices.sort())
+
+# print(prices)
+
+"""
+14. Using filter function return only values if items that are grater than or eqaul to 10 dollars
+"""
+items = [
+    ("product1", 10),
+    ("product2", 9),
+    ("product3", 12),
+    ("product4", 15),
+]
+
+prices = list(filter(lambda items: items[1] >= 10, items))
+# print(prices)
+
+"""
+15. Lambda with Map
+
+Question: Use a lambda function with the map function to square each number in the list [1, 2, 3, 4, 5].
+"""
+
+
+def print_squares(input_list: list):
+    result = map(lambda x: x*x, input_list)
+    print(list(result))
+
+
+# print_squares([1, 2, 3, 4])
+
+"""
+16. Lambda with Filter
+
+Question: Use a lambda function with the filter function to filter out even numbers from the list [1, 2, 3, 4, 5].
+"""
+
+
+def filter_even_number(input_list):
+    result = filter(lambda x: x % 2 != 0, input_list)
+    print(list(result))
+
+
+# filter_even_number([1, 2, 3, 4])
+
+"""
+17. Lambda with Reduce
+
+Question: Use a lambda function with the reduce function from the functools module to calculate the product of all numbers in the list [1, 2, 3, 4, 5].
+"""
+
+
+def product_of_numbers_in_list(input_list):
+    product = reduce(lambda x, y: x*y, input_list)
+    print(product)
+
+
+# product_of_numbers_in_list([1, 2, 3, 4, 5])
+
+
+"""
+18. Lambda with List Comprehension
+
+Question: Use a lambda function inside a list comprehension to create a list of cubes of numbers from 1 to 10.
+"""
+
+
+def lambda_with_list_comprehension(input_list):
+    # Create a lambda function to cube the input
+    def cube_lambda(x): return x**3
+
+    # Apply the lambda function to each item in input_list
+    output_list = [cube_lambda(item) for item in input_list]
+
+    print(output_list)
+
+
+# lambda_with_list_comprehension([1, 2, 3, 4, 5])
+
+
+"""
+19. Problem: Sorting a list of tuples based on the second element of each tuple.
+"""
+
+
+def sort_tuple(input_tuple):
+    input_tuple.sort(key=lambda input_tuple: input_tuple[1])
+    print(input_tuple)
+
+
+# sort_tuple([("Alice", 80), ("Bob", 75), ("Charlie", 90), ("David", 85)])
+
+"""
+20. Swap elements in String list
+The original list is : ['Gfg', 'is', 'best', 'for', 'Geeks']
+List after performing character swaps : ['efg', 'is', 'bGst', 'for', 'eGGks']
+replace G witg e in all ocurrances in the list
+"""
+
+
+def swap_elements_in_string(input_list):
+    # Define a lambda function to perform both replacements
+    def swap_lambda(item): return item.replace(
+        "G", "X").replace("e", "G").replace("X", "e")
+
+    # Apply the lambda function to each item in input_list using list comprehension
+    new_list = [swap_lambda(item) for item in input_list]
+
+    return new_list
+
+
+# Example usage
+# result_list = swap_elements_in_string(['Gfg', ' is ', 'Geeks'])
+print(result_list)
