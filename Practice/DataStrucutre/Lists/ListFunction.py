@@ -237,7 +237,7 @@ def return_square(x):
 # ]
 
 """
-The first print(prices.sort()) returns None because the sort() method sorts the list in place and returns None. 
+The first print(prices.sort()) returns None because the sort() method sorts the list in place and returns None.
 This is a common mistake when using the sort() method.
 """
 # prices = list(map(lambda items: items[1], items))
@@ -320,7 +320,6 @@ def lambda_with_list_comprehension(input_list):
 
 # lambda_with_list_comprehension([1, 2, 3, 4, 5])
 
-
 """
 19. Problem: Sorting a list of tuples based on the second element of each tuple.
 """
@@ -354,4 +353,187 @@ def swap_elements_in_string(input_list):
 
 # Example usage
 # result_list = swap_elements_in_string(['Gfg', ' is ', 'Geeks'])
-print(result_list)
+# print(result_list)
+
+
+"""
+21. Find sum of numbers
+"""
+
+
+def sum_of_numbers(numbers):
+    sum = 0
+    for number in numbers:
+        sum = sum + number
+    return sum
+
+
+numbers = [1, 2, 3, 4]
+# print(sum_of_numbers(numbers))
+
+"""21. Reverses a given string using slicing and a loop."""
+
+
+def reverse_string_inplace(text):
+    output_string = ""
+    for char in text[::-1]:
+        output_string = output_string + char
+    return output_string
+
+
+# print(reverse_string_inplace("Hello world"))
+
+
+"""
+22. Remove duplicate form list
+data = [1, 1, 2, 3, 4, 4, 4]
+remove_duplicates(data)
+"""
+
+
+# def remove_duplicate_int(input_list):
+#     non_duplicate_items = set()
+#     for item in input_list:
+#         if item not in non_duplicate_items:
+#             non_duplicate_items.add(item)
+#     return input_list, non_duplicate_items
+
+
+# print(remove_duplicate_int([1, 1, 2, 3, 4, 4, 4]))
+
+def remove_duplicate_int(input_list):
+    return set(input_list)
+
+
+# print(remove_duplicate_int([1, 1, 2, 3, 4, 4, 4]))
+
+
+"""
+22. Palindrome
+"""
+
+
+def is_palindrome(text):
+    rev_string = ""
+    for char in text[::-1]:
+        rev_string = rev_string + char
+    return text.lower() == rev_string.lower()
+
+
+# print(is_palindrome("Ramar"))
+
+
+"""
+23. Find Maximum of two numbers in Python
+
+Input: a = 2, b = 4
+Output: 4
+
+Input: a = -1, b = -4
+Output: -1
+"""
+
+
+def return_max_of_two(a: int, b: int):
+    return a if a > b else b
+
+
+# print(return_max_of_two(-1, -4))
+
+"""
+24. Check if element exists in list in Python
+
+Input: test_list = [1, 6, 3, 5, 3, 4]
+            3  # Check if 3 exist or not.
+Output: True
+Explanation: The output is True because the element we are looking is exist in the list.
+"""
+
+
+def check_if_element_exist(input_list, target_item):
+    return target_item in input_list
+    # return len([item for item in input_list if item == target_item]) != 0
+
+
+# print(check_if_element_exist([1, 6, 3, 5, 3, 4], 0))
+
+"""
+25. Copying list
+Python program to copy or clone a list Using the Slice Operator
+"""
+
+# def Cloning(li1):
+# Approch 1
+# li_copy = li1[:]
+
+# Approch 2
+# li_copy = []
+# li_copy.extend(li1)
+
+# Approch 3
+# li_copy = li1
+# return li_copy
+
+"""
+26. Count occurrences of an element in a list
+
+Input: lst = [15, 6, 7, 10, 12, 20, 10, 28, 10], x = 10
+Output: 3
+Explanation: 10 appears three times in given list.
+Input: lst = [8, 6, 8, 10, 8, 20, 10, 8, 8], x = 16
+Output: 0
+Explanation: 16 appears zero times in given list.
+"""
+
+
+def count_occurance_element(input_list, target_element):
+    # The sum function adds up these 1s, giving the count of occurrences of target_element
+    return sum(1 for item in input_list if item == target_element)
+
+
+# print(count_occurance_element([8, 6, 8, 10, 8, 20, 10, 8, 8], 16))
+
+"""
+27. Python program to find second largest number in a list
+
+Input: list1 = [10, 20, 4]
+Output: 10
+
+Input: list2 = [70, 11, 20, 4, 100]
+Output: 70
+"""
+
+
+def find_second_largest(input_list):
+    sorted_list = sorted(input_list)
+    return sorted_list[-2]
+
+
+# print(find_second_largest([70, 11, 20, 4, 100]))
+
+"""
+28: Create a list by picking an odd-index items from the first list and even index items from the second
+
+Given:
+
+l1 = [3, 6, 9, 12, 15, 18, 21]
+l2 = [4, 8, 12, 16, 20, 24, 28]
+
+Expected Output:
+Element at odd-index positions from list one
+[6, 12, 18]
+Element at even-index positions from list two
+[4, 12, 20, 28]
+
+Printing Final third list
+[6, 12, 18, 4, 12, 20, 28]
+"""
+
+
+def create_list(list1, list2):
+    return list1[1::2] + list2[0::2]
+
+
+l1 = [3, 6, 9, 12, 15, 18, 21]
+l2 = [4, 8, 12, 16, 20, 24, 28]
+print(create_list(l1, l2))
