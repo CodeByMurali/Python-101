@@ -10,6 +10,28 @@ def sum_numbers(n):
 # Find Prime Numbers
 # Write a function find_primes(n) that takes an integer n and prints all prime numbers less than n.
 # a whole number greater than 1 that cannot be exactly divided by any whole number other than itself and 1 (e.g. 2, 3, 5, 7, 11).
+"""
+If number is divisible by any integer greater than its square root, 
+the corresponding factor must be less than the square root and would have already been checked.
+Consider number = 97:
+
+The square root of 97 is approximately 9.85.
+The range of numbers to check is 2 through 9.
+Check for divisibility:
+97 % 2 ≠ 0
+97 % 3 ≠ 0
+97 % 4 ≠ 0
+97 % 5 ≠ 0
+97 % 6 ≠ 0
+97 % 7 ≠ 0
+97 % 8 ≠ 0
+97 % 9 ≠ 0
+Since 97 is not divisible by any of these numbers, it is confirmed to be a prime number.
+
+
+"""
+
+
 def find_primes(n):
     prime = []
     for number in range(2, n):
@@ -91,6 +113,32 @@ def convert_types(a, b, c):
 Truthy and Falsy Values
 Question: Write a function is_truthy that takes an argument and returns True if the argument is truthy and False if it is falsy. 
 Test the function with different values including None, 0, 0.0, [], {}, "0", and True.
+"""
+
+"""
+Constants Defined as False:
+
+None
+False
+Zero of Any Numeric Type:
+
+0 (integer)
+0.0 (float)
+0j (complex number)
+Empty Sequences and Collections:
+
+'' (empty string)
+[] (empty list)
+() (empty tuple)
+{} (empty dictionary)
+set() (empty set)
+frozenset() (empty frozenset)
+range(0) (empty range)
+Other Built-in Falsy Values:
+
+bytes() (empty bytes)
+bytearray() (empty bytearray)
+memoryview(b'') (empty memoryview)
 """
 
 

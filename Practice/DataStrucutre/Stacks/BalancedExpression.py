@@ -1,35 +1,40 @@
-import StacksUsingList
+"""
+Write a function is_balanced(expression) that takes a string expression containing characters like {, }, [, ], (, and ) 
+and returns True if the expression is balanced, 
+meaning every opening bracket has a corresponding closing bracket in the correct order, and False otherwise.
+
+For example:
+
+is_balanced("{[()]}") should return True
+is_balanced("{[(])}") should return False
+is_balanced("{{[[(())]]}}") should return True
+"""
 
 
-def balancedExpression(inputString: str) -> bool:
-    if not inputString:
+def is_balanced_expression(text):
+    if not text:
         raise ValueError("Input string is empty")
 
-    # Clear the stack before using it
-    StacksUsingList.clear()
-
-    for char in inputString:
-        if char in "()<>{}[]":
-            if char in '(<[{':
-                StacksUsingList.push(char)
-            elif char == ')':
-                if StacksUsingList.isEmpty() or StacksUsingList.pop() != '(':
-                    return False
-            elif char == '>':
-                if StacksUsingList.isEmpty() or StacksUsingList.pop() != '<':
-                    return False
+    my_stack = []
+    # Allow only braces
+    for char in text:
+        if char in "{[(<>)]}":
+            # Add only open bracket
+            if char in "{[<(":
+                my_stack.append(char)
             elif char == '}':
-                if StacksUsingList.isEmpty() or StacksUsingList.pop() != '{':
+                if len(my_stack) == 0 or my_stack.pop() != '{':
                     return False
             elif char == ']':
-                if StacksUsingList.isEmpty() or StacksUsingList.pop() != '[':
+                if len(my_stack) == 0 or my_stack.pop() != '[':
                     return False
+            elif char == '>':
+                if len(my_stack) == 0 or my_stack.pop() != '<':
+                    return False
+            elif char == ')':
+                if len(my_stack) == 0 or my_stack.pop() != '(':
+                    return False
+    return True
 
-    return StacksUsingList.isEmpty()
 
-
-# Example usage
-if __name__ == "__main__":
-    print(balancedExpression("(<>)"))  # Should return True
-    print(balancedExpression("(<>{})"))  # Should return True
-    print(balancedExpression("(<{[}>])"))  # Should return False
+print(is_balanced_expression("{[(])}"))

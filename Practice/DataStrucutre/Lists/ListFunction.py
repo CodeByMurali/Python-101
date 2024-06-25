@@ -1,4 +1,5 @@
 from functools import reduce
+from itertools import zip_longest
 
 """
 List and Accessing Item
@@ -229,12 +230,21 @@ def return_square(x):
 """
 13. Use map function to return only the second item in the list of tuple
 """
-# items = [
-#     ("product1", 10),
-#     ("product2", 9),
-#     ("product3", 12),
-#     ("product4", 15),
-# ]
+
+
+def return_second_item(input_list):
+    op = list(map(lambda item: item[1], input_list))
+    return op
+
+
+items = [
+    ("product1", 10),
+    ("product2", 9),
+    ("product3", 12)
+]
+
+# print(return_second_item(items))  # Should print: [10, 9, 12]
+
 
 """
 The first print(prices.sort()) returns None because the sort() method sorts the list in place and returns None.
@@ -257,6 +267,7 @@ items = [
 
 prices = list(filter(lambda items: items[1] >= 10, items))
 # print(prices)
+
 
 """
 15. Lambda with Map
@@ -534,6 +545,43 @@ def create_list(list1, list2):
     return list1[1::2] + list2[0::2]
 
 
+# l1 = [3, 6, 9, 12, 15, 18, 21]
+# l2 = [4, 8, 12, 16, 20, 24, 28]
+# print(create_list(l1, l2))
+
+
+"""
+29. Write a function zip_uneven_lists(list1, list2) that zips two lists of different lengths.
+What happens when you zip lists of different lengths?
+"""
+
 l1 = [3, 6, 9, 12, 15, 18, 21]
-l2 = [4, 8, 12, 16, 20, 24, 28]
-print(create_list(l1, l2))
+l2 = [4, 8, 12, 16, 20, 24]
+
+
+def zip_uneven_lists(list1, list2):
+    print(list(zip(l1, l2)))
+
+
+# Note that the last element is left out
+# zip_uneven_lists(l1, l2)
+
+# To combine the last element with 0
+
+
+def zip_uneven_lists(list1, list2):
+    result = list(zip_longest(list1, list2, fillvalue=0))
+    print(result)
+
+
+# zip_uneven_lists(l1, l2)
+
+# Other appraoch - Using list comprehension
+def zip_uneven_lists(list1, list2):
+    max_length = max(len(list1), len(list2))
+    result = [(list1[i] if i < len(list1) else 0, list2[i] if i <
+               len(list2) else 0) for i in range(max_length)]
+    print(result)
+
+
+# zip_uneven_lists(l1, l2)
