@@ -37,4 +37,7 @@ def is_balanced_expression(text):
     return True
 
 
-print(is_balanced_expression("{[(])}"))
+if __name__ == "__main__":
+    print(is_balanced_expression("(<>)"))  # Should return True
+    print(is_balanced_expression("(<>{})"))  # Should return True
+    print(is_balanced_expression("(<{[}>])"))  # Should return False

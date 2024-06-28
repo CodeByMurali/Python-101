@@ -1,40 +1,49 @@
+"""
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+Implement the MinStack class:
+
+MinStack() initializes the stack object.
+void push(int val) pushes the element val onto the stack.
+void pop() removes the element on the top of the stack.
+int top() gets the top element of the stack.
+int getMin() retrieves the minimum element in the stack.
+[-2, 0, -3]
+"""
+
+
 class MinStack:
-
-    # Your MinStack object will be instantiated and called as such:
-    # obj = MinStack()
-    # obj.push(val)
-    # obj.pop()
-    # param_3 = obj.top()
-    # param_4 = obj.getMin()
-
     def __init__(self):
-        self.stack = []  # Regular stack to store all elements
-        self.min_stack = []  # Stack to store minimum values
+        self.stack = []
+        self.min_stack = []
+
+    # def push(self, val: int):
+    #     self.stack.append(val)
+    #     if not self.min_stack or val <= self.min_stack[-1]:
+    #         self.min_stack.append(val)
 
     def push(self, val: int) -> None:
         self.stack.append(val)
-        # Update min_stack only if val is less than or equal to the current minimum
-        if not self.min_stack or val <= self.min_stack[-1]:
-            self.min_stack.append(val)
+        val = min(val, self.min_stack[-1] if self.min_stack else val)
+        self.min_stack.append(val)
 
-    def pop(self) -> None:
-        # Pop from both stacks (if not empty)
-        if self.stack:
-            popped_val = self.stack.pop()
-            if popped_val == self.min_stack[-1]:
-                self.min_stack.pop()
+    # def pop(self):
+    #     if self.stack:
+    #         if self.stack[-1] == self.min_stack[-1]:
+    #             self.min_stack.pop()
+    #         self.stack.pop()
 
-    def top(self) -> int:
+    def pop(self):
+        self.stack.pop()
+        self.min_stack.pop()
+
+    def top(self):
         if self.stack:
             return self.stack[-1]
-        else:
-            return None  # Indicate error or empty stack
 
-    def getMin(self) -> int:
+    def get_min(self):
         if self.min_stack:
             return self.min_stack[-1]
-        else:
-            return None  # Indicate error or empty stack
 
 
 min_stack = MinStack()
