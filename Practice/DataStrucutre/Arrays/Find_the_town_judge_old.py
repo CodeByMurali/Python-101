@@ -43,17 +43,22 @@ class FindTheTownJudge:
         if n == 1:
             return 1
 
-        incoming_edges = defaultdict(int)
-        outgoing_edges = defaultdict(int)
+        incoming = defaultdict(int)
+        outcoming = defaultdict(int)
 
         for src, dst in trust:
-            incoming_edges[dst] = incoming_edges[dst] + 1
-            outgoing_edges[src] = outgoing_edges[src] + 1
+            # dst represents the person truseted
+            # Here we are counting number of times a person is trusted
+            # incoming[dst] represents the number of people who trust person dst.
+            incoming[dst] = incoming[dst] + 1
 
-        for node in range(1, n+1):
-            if outgoing_edges[node] == 0 and incoming_edges[node] == n - 1:
+            # outgoing[src] represents the number of people that person src trusts.
+            outcoming[src] = outcoming[src] + 1
+
+        for node in trust[1: n-1]:
+            # if the node is trusted n-1 times (excludes the town judge) and the node is not trusing any other nodes
+            if incoming[node] == n-1 and outcoming[node] == 0:
                 return node
-
         return -1
 
 
