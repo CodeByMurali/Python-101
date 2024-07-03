@@ -1,24 +1,27 @@
 def search_rotated_array(arr, target):
-    # Right is set to len(arr) - 1 because of zero-based indexing
-    left, right = 0, len(arr) - 1
+    l = 0
+    r = len(arr) - 1
 
-    while left <= right:
-        mid = (left + right) // 2  # Calculate the middle index
+    while l <= r:
+        mid = (l + r) // 2
 
         if arr[mid] == target:
-            return mid  # If the target is found, return the index
+            return mid
 
-        # Determine which side is normally ordered
-        if arr[left] <= arr[mid]:  # Left side is normally ordered
-            if arr[left] <= target < arr[mid]:
-                right = mid - 1  # Target is in the left side
+        # Check if the left portion is sorted
+        if arr[mid] >= arr[l]:
+            # If target is within the range of the left sorted portion
+            if arr[l] <= target <= arr[mid]:
+                r = mid - 1
             else:
-                left = mid + 1  # Target is in the right side
-        else:  # Right side is normally ordered
-            if arr[mid] < target <= arr[right]:
-                left = mid + 1  # Target is in the right side
+                l = mid + 1
+        # Otherwise, the right portion must be sorted
+        else:
+            # If target is within the range of the right sorted portion
+            if arr[mid] <= target <= arr[r]:
+                l = mid + 1
             else:
-                right = mid - 1  # Target is in the left side
+                r = mid - 1
 
     return -1  # Target not found
 
