@@ -2,6 +2,7 @@ from collections import defaultdict
 
 
 class FindTheTownJudge:
+    
     #     def findJudge(self, n: int, trust: list[list[int]]) -> int:
     #         # Edge case: If there are no people, return -1 as there's no judge
     #         if n == 0:
