@@ -2,6 +2,7 @@ from collections import deque
 
 
 class DesignHitCounter:
+    
 
     def __init__(self) -> None:
         """
